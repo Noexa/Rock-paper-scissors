@@ -6,23 +6,23 @@ let ignoreCapitalization = userInput.toLowerCase()
 function getComputerChoice () {
     let computerChoice = Math.floor(Math.random()*3)+1
     function convertToWord(choice){
-        if (computerChoice===1) {
-//            console.log("1")
+        if (choice===1) {
             return "rock"
         }
-        else if (computerChoice===2){
-//            console.log("2")
+        else if (choice===2){
             return "paper"
         }
-        else if (computerChoice===3){
-//            console.log("3")
+        else if (choice===3){
             return "scissors"
         }
     }
-convertToWord()
+return convertToWord(computerChoice)
 }
-getComputerChoice()
-//Displays the user's choice
+//Stores computerChoice in global variable
+let computerChoice = getComputerChoice()
+//console.log(computerChoice)
+
+//Displays the user's choice. Possibly rewrite to include total answer
 function showResult () {
     if (ignoreCapitalization=="rock"){
         console.log("You've picked rock!")
@@ -36,6 +36,7 @@ function showResult () {
     else console.log("Please check your spelling.")
 }
 showResult()
+//Need to store ignoreCap in global variable?
 
 //Need to add functionality to display a unique message for each outcome
 //Need to ask the user for a best of 5 and/or just display the results of the bo5
