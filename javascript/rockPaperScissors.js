@@ -6,18 +6,22 @@ let ignoreCapitalization = userInput.toLowerCase()
 function getComputerChoice () {
     let computerChoice = Math.floor(Math.random()*3)+1
     function convertToWord(choice){
-        if (choice===1) {
+        if (computerChoice===1) {
+//            console.log("1")
             return "rock"
         }
-        else if (choice===2){
+        else if (computerChoice===2){
+//            console.log("2")
             return "paper"
         }
-        else if (choice===3){
+        else if (computerChoice===3){
+//            console.log("3")
             return "scissors"
         }
     }
 convertToWord()
 }
+getComputerChoice()
 //Displays the user's choice
 function showResult () {
     if (ignoreCapitalization=="rock"){
