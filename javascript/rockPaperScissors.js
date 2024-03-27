@@ -3,28 +3,19 @@ let ignoreCapitalization = userInput.toLowerCase()
 
 function getComputerChoice () {
     let computerChoice = Math.floor(Math.random()*3)+1
-    function convertComputer(){
-        if (computerChoice===1) {
-            computerChoice="rock"
-            console.log("The computer chose: " + computerChoice)
-            return computerChoice
+    function convertToWord(choice){
+        if (choice===1) {
+            return "rock"
         }
-        else if (computerChoice===2){
-            computerChoice="paper"
-            console.log("The computer chose: " + computerChoice)
-            return computerChoice
+        else if (choice===2){
+            return "paper"
         }
-        else if (computerChoice===3){
-            computerChoice="scissors"
-            console.log("The computer chose: " + computerChoice)
-            return computerChoice
+        else if (choice===3){
+            return "scissors"
         }
-
     }
-   convertComputer()
-
+convertToWord()
 // call on this later to display the results
-
 }
 
 getComputerChoice()
