@@ -1,6 +1,8 @@
+//Alerts user about the game and asks for their move
 let userInput = prompt("It's time for a game of rock, paper, scissors! Please type which move you'd like to use: ")
 let ignoreCapitalization = userInput.toLowerCase()
 
+//Automatically assigns a move to the computer
 function getComputerChoice () {
     let computerChoice = Math.floor(Math.random()*3)+1
     function convertToWord(choice){
@@ -15,11 +17,8 @@ function getComputerChoice () {
         }
     }
 convertToWord()
-// call on this later to display the results
 }
-
-getComputerChoice()
-
+//Displays the user's choice
 function showResult () {
     if (ignoreCapitalization=="rock"){
         console.log("You've picked rock!")
@@ -30,6 +29,9 @@ function showResult () {
     else if (ignoreCapitalization=="scissors"){
         console.log("You've picked scissors!")
 }
-    else console.log("Please check your spelling")
+    else console.log("Please check your spelling.")
 }
 showResult()
+
+//Need to add functionality to display a unique message for each outcome
+//Need to ask the user for a best of 5 and/or just display the results of the bo5
