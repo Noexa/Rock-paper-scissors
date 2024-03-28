@@ -24,32 +24,38 @@ let computerChoice = getComputerChoice()
 
 //Displays the user's choice. Possibly rewrite to include total answer
 function showResult () {
-    if (ignoreCapitalization==computerChoice){
+    if (ignoreCapitalization===computerChoice){
         console.log("You both selected " + ignoreCapitalization + ". Tie game! ")
 }
-    else if (ignoreCapitalization=="rock" && computerChoice=="paper"){
-        console.log("You selected rock and your opponent picked paper. You lose!")
-    }
-    else if (ignoreCapitalization=="rock" && computerChoice=="scissors"){
+
+    else if (ignoreCapitalization==="rock" && computerChoice==="scissors"){
         console.log("You've selected rock and your opponent picked scissors. You win!")
+        return ("win")
     }
-    else if (ignoreCapitalization=="paper" && computerChoice=="rock"){
+    else if (ignoreCapitalization==="paper" && computerChoice==="rock"){
         console.log("You've selected paper and your opponent picked rock. You win!")
+        return ("win")
     }
-    else if (ignoreCapitalization=="paper" && computerChoice=="scissors"){
-        console.log("You've selected paper and your opponent picked scissors. You lose!")
-    }
-    else if (ignoreCapitalization=="scissors" && computerChoice=="rock") {
-        console.log("You picked scissors and your opponent picked rock. You lose!")
-    }
-    else if (ignoreCapitalization="scissors" && computerChoice=="paper"){
+    else if (ignoreCapitalization="scissors" && computerChoice==="paper"){
         console.log("You've selected scissors and your opponent picked paper. You win!")
+        return ("win")
     }
+    else if (ignoreCapitalization==="paper" && computerChoice==="scissors"){
+        console.log("You've selected paper and your opponent picked scissors. You lose!")
+        return ("lose")
+    }
+    else if (ignoreCapitalization==="rock" && computerChoice==="paper"){
+        console.log("You selected rock and your opponent picked paper. You lose!")
+        return ("lose")
+    }
+    else if (ignoreCapitalization==="scissors" && computerChoice==="rock") {
+        console.log("You picked scissors and your opponent picked rock. You lose!")
+        return ("lose")
+    }
+
     else console.log("You did not enter a valid response. Please check your spelling.")
+        return ("failed to enter")
     
 }
-
-showResult()
-
-//Need to add functionality to display a unique message for each outcome
-//Need to ask the user for a best of 5 and/or just display the results of the bo5
+console.log("You " + showResult() + " this round.")
+//playgame() function that plays a bo5
