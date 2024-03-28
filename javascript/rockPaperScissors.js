@@ -5,14 +5,14 @@ let ignoreCapitalization = userInput.toLowerCase()
 //Automatically assigns a move to the computer
 function getComputerChoice () {
     let computerChoice = Math.floor(Math.random()*3)+1
-    function convertToWord(choice){
-        if (choice===1) {
+    function convertToWord(computerChoice){
+        if (computerChoice===1) {
             return "rock"
         }
-        else if (choice===2){
+        else if (computerChoice===2){
             return "paper"
         }
-        else if (choice===3){
+        else if (computerChoice===3){
             return "scissors"
         }
     }
@@ -57,5 +57,25 @@ function showResult () {
         return ("failed to enter")
     
 }
+//Console log might need to be removed when you revisit this project, but for now it's fine
 console.log("You " + showResult() + " this round.")
+
 //playgame() function that plays a bo5
+ function playgame(){
+    let playerScore = 0
+    let computerScore = 0
+    for (i=0; i<5; i++){
+        let userInput = prompt("It's time for a best of 5. Please type your move ")
+        let ignoreCapitalization = userInput.toLowerCase()
+        if (!["rock", "paper", "scissors"].includes(userInput)) {
+            console.log("You did not enter a valid response. Please check your spelling.")
+        i--
+        continue
+    }
+
+    }
+    // console.log(showResult())
+ }
+
+
+//good idea to add a button later asking the user bo1 or bo5
