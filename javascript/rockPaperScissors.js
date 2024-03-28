@@ -26,6 +26,7 @@ let computerChoice = getComputerChoice()
 function showResult () {
     if (ignoreCapitalization===computerChoice){
         console.log("You both selected " + ignoreCapitalization + ". Tie game! ")
+        return ("tie")
 }
 
     else if (ignoreCapitalization==="rock" && computerChoice==="scissors"){
@@ -36,7 +37,7 @@ function showResult () {
         console.log("You've selected paper and your opponent picked rock. You win!")
         return ("win")
     }
-    else if (ignoreCapitalization="scissors" && computerChoice==="paper"){
+    else if (ignoreCapitalization==="scissors" && computerChoice==="paper"){
         console.log("You've selected scissors and your opponent picked paper. You win!")
         return ("win")
     }
@@ -58,24 +59,38 @@ function showResult () {
     
 }
 //Console log might need to be removed when you revisit this project, but for now it's fine
-console.log("You " + showResult() + " this round.")
+showResult()
+console.log("Time for bonus game! It's a best of 5. Good luck!")
 
-//playgame() function that plays a bo5
- function playgame(){
+//playgame() function that uses an array to check the validity of user inputs and records a bo5
+ function playGame(){
     let playerScore = 0
     let computerScore = 0
     for (i=0; i<5; i++){
-        let userInput = prompt("It's time for a best of 5. Please type your move ")
+        let userInput = prompt("Please type your move: ")
         let ignoreCapitalization = userInput.toLowerCase()
         if (!["rock", "paper", "scissors"].includes(userInput)) {
-            console.log("You did not enter a valid response. Please check your spelling.")
+            console.log("You did not enter a valid response. Please check your spelling and try again.")
         i--
         continue
     }
+    //Currently bugged. Does not update variables and copies results of the initial game prior to bo5. Need to declare and assign new variables?
+    showResult(ignoreCapitalization)
+        if (showResult==="tie"){
+            playerScore++
+            computerScore++
+    }
+        else if (showResult==="win"){
+            playerScore++
+    }
+        else if (showResult==="lose"){
+            computerScore++
+    }
+    console.log("The current score is "+playerScore + ":" +computerScore+".")
 
     }
-    // console.log(showResult())
- }
 
+ }
+playGame()
 
 //good idea to add a button later asking the user bo1 or bo5
